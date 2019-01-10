@@ -35,4 +35,4 @@ public class Java2 {
 }
 
 // Time complexity would be O(n)
-// Space complexity would be O(1)
+// Space complexity would be O(n)
