@@ -1,4 +1,4 @@
-package jia2.rodents_assignment;
+package jia3.rodents_assignment;
 
 class Rodent {
 

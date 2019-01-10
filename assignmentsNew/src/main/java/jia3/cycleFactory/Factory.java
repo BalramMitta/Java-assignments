@@ -1,4 +1,4 @@
-package jia2.cycleFactory;
+package jia3.cycleFactory;
 
 interface Cycle{
     void ride();
