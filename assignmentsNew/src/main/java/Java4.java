@@ -57,7 +57,7 @@ public class Java4 {
 
         while (count!=0){
 
-            eachLine=scanner.nextLine();     // each line of record with sign u date and current date
+            eachLine=scanner.nextLine();     // each line of record with sign up date and current date
 
             String[] dates=eachLine.split(" ");    // splitting line at space for dates
 
