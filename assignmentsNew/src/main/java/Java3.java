@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 public class Java3 {
 
@@ -53,7 +54,9 @@ public class Java3 {
 
     public static void main(String[] args){
 
-        String ip = "google.com";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter any host : ");
+        String ip = scanner.next();
         runSystemPingCommand(ip);
     }
 
