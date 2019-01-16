@@ -36,7 +36,7 @@ public class CharacterCount {
                         map.put(key, 1);
                 }
             }
-                File output = new File("assignmentsNew/target/classes/jia7/output.txt");
+                File output = new File("assignmentsNew/src/main/java/jia7/output.txt");
                 BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(output));
 
                 // writing each character and its occurrence count in output file
