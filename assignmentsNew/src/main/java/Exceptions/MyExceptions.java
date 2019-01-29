@@ -40,9 +40,10 @@ public class MyExceptions {
             }
             else {
                 System.out.println("Area : "+l*b);
+                throw new NullPointerException();
             }
         }
-        catch (Exception e){
+        catch (NegativeValueException | ZeroValueException | LimitExceededException e){
             System.out.println("Exception caught  \n"+e.getMessage());
         }
         finally {

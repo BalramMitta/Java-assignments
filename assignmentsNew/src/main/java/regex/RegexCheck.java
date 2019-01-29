@@ -9,11 +9,9 @@ public class RegexCheck {
 
         Scanner scanner=new Scanner(System.in);
 
-        int f;
-
         System.out.println("Enter a sentence");
 
-        String sentence = scanner.nextLine();   // taking input from command line.
+        String sentence = scanner.nextLine();
 
         String matchingString = "^[A-Z].*[\\.]$";   // Regular expression for a string starting with capital letter and ending with a dot(.).
 

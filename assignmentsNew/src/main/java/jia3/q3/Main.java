@@ -13,18 +13,18 @@ interface A{
 
 interface B{
 
-    abstract void b1();
+    void b1();
 
-    abstract void b2();
+    void b2();
 }
 
 // Interface 3
 
 interface C{
 
-    abstract void c1();
+    void c1();
 
-    abstract void c2();
+    void c2();
 }
 
 // New interface joining above 3 interfaces

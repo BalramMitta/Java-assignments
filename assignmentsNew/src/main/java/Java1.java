@@ -5,13 +5,13 @@ import java.util.Scanner;
 public class Java1 {
 
 
+    /*
+     * prints all the files matching the string
+     *
+     */
     static void findFiles(final String searchText){
-        File homeDir = new File("./");
-        FilenameFilter filter = new FilenameFilter() {
-            public boolean accept (File dir, String name) {
-                return name.matches("(.*)"+searchText+"(.*)");
-            }
-        };
+        File homeDir = new File("/home/");
+        FilenameFilter filter = (dir, name) -> name.matches("(.*)"+searchText+"(.*)");
 
         File[] files = homeDir.listFiles(filter);
         System.out.println("Files found "+files.length);

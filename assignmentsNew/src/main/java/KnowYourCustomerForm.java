@@ -1,8 +1,11 @@
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
-public class Java4 {
+public class KnowYourCustomerForm {
+
+    private static Logger logger = Logger.getLogger(KnowYourCustomerForm.class.getName());
 
     /*
      *  returns nearest anniversary ( @code LocalDate )
@@ -43,14 +46,14 @@ public class Java4 {
     public static void printRangeOfDatesForFormDate(LocalDate signUpDate, LocalDate presentDate){
 
         if(presentDate.isBefore(signUpDate)){
-            System.out.println("No Range");
+            logger.info("No Range");
             return;
         }
 
         LocalDate nearestAnniversary = getNearestAnniversary(signUpDate,presentDate);
 
         if(nearestAnniversary.equals(signUpDate)){
-            System.out.println("No Range");
+            logger.info("No Range");
             return;
         }
 
@@ -80,7 +83,7 @@ public class Java4 {
                 printRangeOfDatesForFormDate(signUpDate, presentDate);
             }
             catch (Exception e){
-                System.out.println(e.getMessage());
+                logger.info(e.getMessage());
             }
         }
     }
