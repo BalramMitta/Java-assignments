@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Java3 {
 
 
-    static void runSystemPingCommand(String ip){
+    static void runSystemPingCommand(String ip) {
 
 
         try {
-            Process process = Runtime.getRuntime().exec("ping "+ip);
+            Process process = Runtime.getRuntime().exec("ping " + ip);
             BufferedReader inputStream = new BufferedReader(
                     new InputStreamReader(process.getInputStream()));
 
@@ -23,7 +23,7 @@ public class Java3 {
 
                 if (s.contains("time=")) {
                     //getting time from the ping command line output and converting to float value.
-                    pingTimes.add( Float.valueOf( s.substring(s.lastIndexOf("=")+1, s.lastIndexOf(" ms") ) ) );
+                    pingTimes.add(Float.valueOf(s.substring(s.lastIndexOf("=") + 1, s.lastIndexOf(" ms"))));
 
                     // Calculating median
                     // Getting the sorted order of times
@@ -32,15 +32,13 @@ public class Java3 {
                     // Finding the middle element for median.
                     //Check no.of total elements are odd or even as it has one middle element or two.
                     // If no.of elements is even there will be two middle elements and the median is average of two.
-                    if(pingTimes.size()%2==0){
-                        median = (pingTimes.get(pingTimes.size()/2) + pingTimes.get(pingTimes.size()/2 - 1))/2;
-                    }
-                    else {
-                        median = pingTimes.get((pingTimes.size()-1)/2);
+                    if (pingTimes.size() % 2 == 0) {
+                        median = (pingTimes.get(pingTimes.size() / 2) + pingTimes.get(pingTimes.size() / 2 - 1)) / 2;
+                    } else {
+                        median = pingTimes.get((pingTimes.size() - 1) / 2);
                     }
 
                     System.out.println(median);
-
 
 
                 }
@@ -52,7 +50,7 @@ public class Java3 {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter any host : ");

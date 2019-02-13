@@ -1,14 +1,14 @@
 package jia3.cycleFactory;
 
-interface Cycle{
+interface Cycle {
     void ride();
 }
 
-interface CycleFactory{
+interface CycleFactory {
     Cycle getCycle();
 }
 
-class Unicycle implements Cycle{
+class Unicycle implements Cycle {
 
     @Override
     public void ride() {
@@ -16,7 +16,7 @@ class Unicycle implements Cycle{
     }
 }
 
-class Bicycle implements Cycle{
+class Bicycle implements Cycle {
 
     @Override
     public void ride() {
@@ -24,7 +24,7 @@ class Bicycle implements Cycle{
     }
 }
 
-class Tricycle implements Cycle{
+class Tricycle implements Cycle {
 
     @Override
     public void ride() {
@@ -33,7 +33,7 @@ class Tricycle implements Cycle{
 
 }
 
-class UnicycleFactory implements CycleFactory{
+class UnicycleFactory implements CycleFactory {
 
     @Override
     public Cycle getCycle() {
@@ -41,14 +41,15 @@ class UnicycleFactory implements CycleFactory{
     }
 }
 
-class BicycleFactory implements CycleFactory{
+class BicycleFactory implements CycleFactory {
 
     @Override
     public Cycle getCycle() {
         return new Bicycle();
     }
 }
-class TricycleFactory implements CycleFactory{
+
+class TricycleFactory implements CycleFactory {
 
     @Override
     public Cycle getCycle() {
@@ -58,19 +59,16 @@ class TricycleFactory implements CycleFactory{
 
 public class Factory {
 
-    Cycle getCycle(String cycleName){
+    Cycle getCycle(String cycleName) {
 
         CycleFactory cycleFactory;
-        if("Uni".equalsIgnoreCase(cycleName)){
+        if ("Uni".equalsIgnoreCase(cycleName)) {
             cycleFactory = new UnicycleFactory();
-        }
-        else if("Bi".equalsIgnoreCase(cycleName)){
+        } else if ("Bi".equalsIgnoreCase(cycleName)) {
             cycleFactory = new BicycleFactory();
-        }
-        else if("Tri".equalsIgnoreCase(cycleName)){
+        } else if ("Tri".equalsIgnoreCase(cycleName)) {
             cycleFactory = new TricycleFactory();
-        }
-        else {
+        } else {
             System.out.println("No mentioned Cycle");
             return null;
         }
@@ -78,7 +76,7 @@ public class Factory {
         return cycleFactory.getCycle();
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Factory factory = new Factory();
 

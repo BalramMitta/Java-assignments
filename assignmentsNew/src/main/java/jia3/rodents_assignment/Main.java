@@ -2,73 +2,79 @@ package jia3.rodents_assignment;
 
 class Rodent {
 
-    Rodent(){
+    Rodent() {
         System.out.println("Rodent");
     }
 
-    void eat(){
+    void eat() {
         System.out.println("Rodent is eating");
     }
 
-    void sleep(){
+    void sleep() {
         System.out.println("Rodent is sleeping");
     }
 
 }
 
-class Mouse extends Rodent{
+class Mouse extends Rodent {
 
-    Mouse(){
+    Mouse() {
         System.out.println("Mouse");
     }
 
-    void eat(){
+    @Override
+    void eat() {
         System.out.println("Mouse is eating");
     }
 
-    void sleep(){
+    @Override
+    void sleep() {
         System.out.println("Mouse is sleeping");
     }
 }
 
-class Gerbil extends Rodent{
+class Gerbil extends Rodent {
 
-    Gerbil(){
+    Gerbil() {
         System.out.println("Gerbil");
     }
 
-    void eat(){
+    @Override
+    void eat() {
         System.out.println("Gerbil is eating");
     }
 
-    void sleep(){
+    @Override
+    void sleep() {
         System.out.println("Gerbil is sleeping");
     }
 }
 
-class Hamster extends Rodent{
+class Hamster extends Rodent {
 
-    Hamster(){
+    Hamster() {
         System.out.println("Hamster");
     }
 
-    void eat(){
+    @Override
+    void eat() {
         System.out.println("Hamster is eating");
     }
 
-    void sleep(){
+    @Override
+    void sleep() {
         System.out.println("Hamster is sleeping");
     }
 }
 
-public class Main{
+public class Main {
 
     public static void main(String[] args) {
 
         Rodent rodent[] = new Rodent[3];
-        rodent[0]=new Mouse();
-        rodent[1]=new Gerbil();
-        rodent[2]=new Hamster();
+        rodent[0] = new Mouse();
+        rodent[1] = new Gerbil();
+        rodent[2] = new Hamster();
 
         rodent[0].eat();
         rodent[0].sleep();

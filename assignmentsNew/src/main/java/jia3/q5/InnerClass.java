@@ -1,23 +1,22 @@
 package jia3.q5;
 
 
+class A {
 
-class A{
+    class InnerA {
 
-    class InnerA{
-
-        InnerA(String s){
-            System.out.println("Inside Inner A \n "+s);
+        InnerA(String s) {
+            System.out.println("Inside Inner A \n " + s);
         }
 
     }
 }
 
-class B{
+class B {
 
-    class InnerB extends A.InnerA{
+    class InnerB extends A.InnerA {
 
-        InnerB(A a,String s) {
+        InnerB(A a, String s) {
             a.super(s);
         }
 
@@ -27,11 +26,11 @@ class B{
 
 public class InnerClass {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        A a=new A();
-        B b=new B();
-        B.InnerB innerB=b.new InnerB(a,"Hello Balram");
+        A a = new A();
+        B b = new B();
+        B.InnerB innerB = b.new InnerB(a, "Hello Balram");
 
     }
 

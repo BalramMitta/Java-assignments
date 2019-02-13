@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class CharacterCount {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         try {
 
@@ -15,13 +15,13 @@ public class CharacterCount {
             File input = new File(path);
             BufferedReader bufferedReader = new BufferedReader(new FileReader(input));  // Using buffered reader to read the contents of file
 
-            Map<Character,Integer> map = new HashMap<>();
+            Map<Character, Integer> map = new HashMap<>();
 
             String line;
             char key;
 
             // reading each line from the contents of file
-            while ((line = bufferedReader.readLine())!=null) {
+            while ((line = bufferedReader.readLine()) != null) {
 
                 // reading each character from the line
                 for (int i = 0; i < line.length(); i++) {
@@ -36,16 +36,16 @@ public class CharacterCount {
                         map.put(key, 1);
                 }
             }
-                File output = new File("assignmentsNew/src/main/java/jia7/output.txt");
-                BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(output));
+            File output = new File("assignmentsNew/src/main/java/jia7/output.txt");
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(output));
 
-                // writing each character and its occurrence count in output file
-                for ( Map.Entry<Character, Integer> m:map.entrySet() ) {
+            // writing each character and its occurrence count in output file
+            for (Map.Entry<Character, Integer> m : map.entrySet()) {
 
-                    bufferedWriter.write(m.getKey()+" : "+m.getValue());
-                    bufferedWriter.newLine();
+                bufferedWriter.write(m.getKey() + " : " + m.getValue());
+                bufferedWriter.newLine();
 
-                 }
+            }
 
             System.out.println("Results written to output.txt file");
 

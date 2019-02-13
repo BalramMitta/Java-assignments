@@ -2,7 +2,7 @@ package jia3.q3;
 
 // Interface 1
 
-interface A{
+interface A {
 
     void a1();
 
@@ -11,7 +11,7 @@ interface A{
 
 // Interface 2
 
-interface B{
+interface B {
 
     void b1();
 
@@ -20,7 +20,7 @@ interface B{
 
 // Interface 3
 
-interface C{
+interface C {
 
     void c1();
 
@@ -29,7 +29,7 @@ interface C{
 
 // New interface joining above 3 interfaces
 
-interface D extends A,B,C{
+interface D extends A, B, C {
 
     void d1();
 }
@@ -38,7 +38,7 @@ interface D extends A,B,C{
 
 class Concrete {
 
-    void print(){
+    void print() {
         System.out.println("Concrete");
     }
 
@@ -47,7 +47,7 @@ class Concrete {
 
 // class extending concrete class implementing the interface D
 
-public class Main extends Concrete implements D{
+public class Main extends Concrete implements D {
 
 
     //Implementation of methods from A,B,C,D interfaces
@@ -90,30 +90,30 @@ public class Main extends Concrete implements D{
 
     // Four methods taking one of the above interfaces as argument and calling its method
 
-    void methodA(A a){
+    void methodA(A a) {
         a.a1();
         a.a2();
     }
 
-    void methodB(B b){
+    void methodB(B b) {
         b.b1();
         b.b2();
     }
 
-    void methodC(C c){
+    void methodC(C c) {
         c.c1();
         c.c2();
     }
 
-    void methodD(D d){
+    void methodD(D d) {
         d.d1();   // can call any of the methods from A,B,C
 
     }
 
 
-    public static void main(String[] arggs){
+    public static void main(String[] arggs) {
 
-        Main m=new Main();
+        Main m = new Main();
 
         m.methodA(m);
         m.methodB(m);
