@@ -1,24 +1,26 @@
 package exceptions;
 
-class NegativeValueException extends Exception{
+import java.util.logging.Logger;
 
-    NegativeValueException(){
+class NegativeValueException extends Exception {
+
+    NegativeValueException() {
         super("NegativeValueException - cannot have negative values");
     }
 
 }
 
-class ZeroValueException extends Exception{
+class ZeroValueException extends Exception {
 
-    ZeroValueException(){
+    ZeroValueException() {
         super("ZeroValueException - cannot have zeroes");
     }
 
 }
 
-class LimitExceededException extends Exception{
+class LimitExceededException extends Exception {
 
-    LimitExceededException(){
+    LimitExceededException() {
         super("LimitExceededException - value cannot be more than 100");
     }
 
@@ -27,38 +29,44 @@ class LimitExceededException extends Exception{
 
 public class MyExceptions {
 
-    void printArea(int l,int b){
+    Logger logger = Logger.getLogger(MyExceptions.class.getName());
+
+    /**
+     * Calculate area of rectangle
+     * Throwing user defined exceptions
+     * <p>
+     * Throwing null pointer exception to check whether finally block executes and it does.
+     *
+     * @param length
+     * @param breadth
+     */
+    void printAreaOfRectangle(int length, int breadth) {
         try {
-            if (l < 0 || b < 0) {
+            if (length < 0 || breadth < 0) {
                 throw new NegativeValueException();
-            }
-            else if(l==0 || b==0){
+            } else if (length == 0 || breadth == 0) {
                 throw new ZeroValueException();
-            }
-            else if(l>100 || b>100){
+            } else if (length > 100 || breadth > 100) {
                 throw new LimitExceededException();
+            } else {
+                logger.info("Area : " + length * breadth);
+//                throw new NullPointerException();
             }
-            else {
-                System.out.println("Area : "+l*b);
-                throw new NullPointerException();
-            }
-        }
-        catch (NegativeValueException | ZeroValueException | LimitExceededException e){
-            System.out.println("Exception caught  \n"+e.getMessage());
-        }
-        finally {
-            System.out.println("Inside Finally block");
+        } catch (NegativeValueException | ZeroValueException | LimitExceededException e) {
+            logger.info("Exception caught  \n" + e.getMessage());
+        } finally {
+            logger.info("Inside Finally block");
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         MyExceptions myExceptions = new MyExceptions();
 
-        myExceptions.printArea(-1,4);
-        myExceptions.printArea(6,0);
-        myExceptions.printArea(104,88);
-        myExceptions.printArea(12,9);
+        myExceptions.printAreaOfRectangle(-1, 4);
+        myExceptions.printAreaOfRectangle(6, 0);
+        myExceptions.printAreaOfRectangle(104, 88);
+        myExceptions.printAreaOfRectangle(12, 9);
 
     }
 

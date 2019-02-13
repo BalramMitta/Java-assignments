@@ -6,7 +6,7 @@ public class Singleton {
 
     public String string;
 
-    public static Singleton assignAndReturn(String string){
+    public static Singleton getSingletonWithString(String string){
 
         if(singleton == null)
             singleton = new Singleton();

@@ -12,7 +12,7 @@ public class Main {
         data.printMemberVaribales();
         // data.printLocalVariables();
 
-        Singleton singleton=Singleton.assignAndReturn("String in singleton class");
+        Singleton singleton=Singleton.getSingletonWithString("String in singleton class");
         singleton.printString();
     }
 

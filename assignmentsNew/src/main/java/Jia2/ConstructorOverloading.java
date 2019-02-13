@@ -3,20 +3,25 @@ package Jia2;
 public class ConstructorOverloading {
 
 
-
-
-    //first constructor without arguments
-    ConstructorOverloading(){
+    /**
+     *  Constructor without arguments
+     */
+    ConstructorOverloading() {
         this("Greetings");
-        System.out.println("Inside First Constructor");
+        System.out.println("Inside Constructor With No arguments");
     }
 
-    //second constructor with one argument
-    ConstructorOverloading(String welcomeMessage){
-        System.out.println("Inside Second Constructor : "+welcomeMessage);
+
+    /**
+     *
+     * Constructor with one argument
+     * @param welcomeMessage
+     */
+    ConstructorOverloading(String welcomeMessage) {
+        System.out.println("Inside Constructor with welcome message : " + welcomeMessage);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         ConstructorOverloading constructorOverloading = new ConstructorOverloading();
 

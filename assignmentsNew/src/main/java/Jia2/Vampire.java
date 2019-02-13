@@ -6,67 +6,81 @@ import java.util.Arrays;
 
 public class Vampire {
 
-    static int noOfDigits(long num){
+    static int noOfDigits(long num) {
         return Long.toString(num).length();
     }
 
-    static boolean isVampire(long num1,long num2,long originalNumber){
+    /**
+     *  Checking if it is vampire
+     *
+     *  Converting numbers to string to byte array
+     *  one array of original number
+     *  and another is joined string of num1 and num2
+     *
+     * Sorting arrays to check does they contain same characters( digits )
+     * @param num1 factor 1
+     * @param num2 factor 2
+     * @param originalNumber
+     * @return  true if vampire ( sorted byte arrays are equal )
+     *          false otherwise
+     */
+    static boolean isVampire(long num1, long num2, long originalNumber) {
 
-        // no. of digits of factored numbers must be equal
-        if(noOfDigits(num1)!=noOfDigits(num2))
+        // no. of digits of factored numbers must be equal and both the numbers should not have trailing zeroes
+        if (noOfDigits(num1) != noOfDigits(num2) || (num1 % 10 == 0 && num2 % 10 == 0))
             return false;
 
-        // both the numbers should not contain trailing zeroes
-        if(num1%10==0 && num2%10==0)
-            return false;
+        byte[] originalBytes = Long.toString(originalNumber).getBytes();
+        byte[] joinedStringBytes = Long.toString(num1).concat(Long.toString(num2)).getBytes();
 
-        // converting long number to string format
-        String originalNumberString = Long.toString(originalNumber);
-        String joinedString = Long.toString(num1).concat(Long.toString(num2));
-
-        // converting string to byte array
-        byte[] originalBytes = originalNumberString.getBytes();
-        byte[] joinedStringBytes = joinedString.getBytes();
-
-        // sorting arrays
         Arrays.sort(originalBytes);
         Arrays.sort(joinedStringBytes);
 
-        // checking if the arrays are equal
-        if(Arrays.equals(originalBytes,joinedStringBytes))
-            return true;
-        else
-            return false;
+        return Arrays.equals(originalBytes, joinedStringBytes);
 
     }
 
 
-
-
-    public static void main(String[] args){
+    /**
+     *
+     *  Printing first 100 vampire numbers
+     *
+     *  %for loop% looping from number 1000 as there is no vampire below 1000 , loop ends when count reaches 100
+     *  No of digits must be odd
+     *  if number of digits are odd then multiplies to get next even number of digits number
+     *
+     *  getting factors for each number , vampire factors have half digits each
+     *
+     *  %for loop% looping from first number with half number of digits to square root of number
+     *
+     *  if found factor check if it is vampire
+     *  If it is vampire  print and increment count
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
 
         int count = 0;
 
-         // No Vampire number below 1000 (i.e., in the range of 10-99)
-        for (long i=1000;count<100;i++){
+        // No Vampire number below 1000 (i.e., in the range of 10-99)
+        for (long i = 1000; count < 100; i++) {
 
-            if(noOfDigits(i)%2!=0){                                             // if no. of digits is odd
-                i=i*10-1;                                                       // multiply with 10 for making no. of digits even .
-                                                                                // Subtracting 1 as it adds 1 for next loop
+            if (noOfDigits(i) % 2 != 0) {
+                i = i * 10 - 1;
                 continue;
             }
 
-            long startRange = (long) Math.pow(10,(noOfDigits(i)/2)-1);          // first number with no.of digits half
+            long startRange = (long) Math.pow(10, (noOfDigits(i) / 2) - 1);
 
-            for(long num1 = startRange;num1<=Math.sqrt(i)+1;num1++){
-                if(i%num1==0){                                                  // check if it is factor
-                    if(isVampire(num1,i/num1,i)){                         // checking for the vampire number with the other factor i/num1
-                        System.out.println(i+" - ( "+num1+", "+i/num1+" )");    //  printing vampire number with it's factors
-                        count++;                                                //  incrementing the count
+            for (long num1 = startRange; num1 <= Math.sqrt(i) + 1; num1++)
+                if (i % num1 == 0) {
+                    long num2 = i / num1;
+                    if (isVampire(num1, num2, i)) {
+                        System.out.println(i + " - ( " + num1 + ", " + i / num1 + " )");
+                        count++;
                         break;
                     }
                 }
-            }
 
         }
 
