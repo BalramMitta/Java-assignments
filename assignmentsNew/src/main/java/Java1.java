@@ -11,7 +11,9 @@ public class Java1 {
      */
     static void findFiles(final String searchText){
         File homeDir = new File("/home/");
-        FilenameFilter filter = (dir, name) -> name.matches("(.*)"+searchText+"(.*)");
+
+
+        FilenameFilter filter = (dir, name) -> name.matches("(.*)" + searchText + "(.*)");
 
         File[] files = homeDir.listFiles(filter);
         System.out.println("Files found "+files.length);

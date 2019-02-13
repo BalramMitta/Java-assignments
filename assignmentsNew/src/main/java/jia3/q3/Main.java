@@ -4,9 +4,9 @@ package jia3.q3;
 
 interface A{
 
-    abstract void a1();
+    void a1();
 
-    abstract void a2();
+    void a2();
 }
 
 // Interface 2
@@ -31,14 +31,14 @@ interface C{
 
 interface D extends A,B,C{
 
-    abstract void d1();
+    void d1();
 }
 
 // Concrete class
 
 class Concrete {
 
-    void printConcrete(){
+    void print(){
         System.out.println("Concrete");
     }
 

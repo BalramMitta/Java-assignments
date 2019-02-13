@@ -1,14 +1,15 @@
+package assignment;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-public class Java4 {
+public class KYCForm {
 
     private static final int DAYS_RANGE_LIMIT = 30;
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    private static final Logger LOG = Logger.getLogger(Java4.class.getName());
+    private static final Logger LOG = Logger.getLogger(KYCForm.class.getName());
 
 
     /**

@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 class NegativeValueException extends Exception{
 
